@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.title {
+    margin-top: 50px;
+    font-size: 32px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 2px;
+}
+.line { 
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+.key {
+    border: 1px solid green;
+    width: 50px;
+    height: 36px;
+    font-size: 22px;
+    padding: 5px;
+}
+.Backspace, .CapsLock {
+    width: 90px;
+    font-size: 19px;
+}
+.Enter {
+    width: 105px;
+    font-size: 19px;
+}
+.ShiftLeft, .ShiftRight {
+    width: 130px;
+    font-size: 19px;
+}
+.Tab, .Delete, .ControlLeft, .MetaLeft, .AltLeft, .AltRight, .ControlRight {
+    font-size: 19px;
+}
+.Space {
+    width: 427px;
+}
+.ArrowUp, .ArrowLeft, .ArrowDown, .ArrowRight {
+    text-align: center;
+}
+.animation {
+    transform: scale(0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
