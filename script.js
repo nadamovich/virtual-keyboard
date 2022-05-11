@@ -572,3 +572,43 @@ function enterBtn () {
     TEXTAREA.value = TEXTAREA.value + '\n'
 }
 ENTERBTN.addEventListener('click', enterBtn)
+
+let currentLang = 'ENG'
+function langSwitch (event) {
+    if (currentLang === 'ENG'){
+        if(event.code === 'AltLeft') {
+            document.onkeyup = function isShift(press) {
+                if (press.code === 'ShiftLeft'){
+                    currentLang = 'RUS'
+                    KEY.forEach((button) => {                        
+                        for (let i = 0; i < keysArr.length; i = i + 1) {
+                            for (let l = 0; l < keysArr[i].length; l = l + 1){
+                                if (button.classList.contains(`${keysArr[i][l].code}`)) {
+                                    button.innerHTML = `${keysArr[i][l].RUS}`
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+        }
+    } else {
+        if(event.code === 'AltLeft'){
+            document.onkeyup = function isShift(press) {
+                if (press.code === 'ShiftLeft'){
+                    currentLang = 'ENG'
+                    KEY.forEach((button) => {                        
+                        for (let i = 0; i < keysArr.length; i = i + 1) {
+                            for (let l = 0; l < keysArr[i].length; l = l + 1){
+                                if (button.classList.contains(`${keysArr[i][l].code}`)) {
+                                    button.innerHTML = `${keysArr[i][l].ENG}`
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+        }
+    }
+}
+document.addEventListener('keydown', langSwitch)
