@@ -513,13 +513,17 @@ KEY.forEach((Element) => {
     Element.addEventListener('mouseup', clickAnimationEnd)
 })
 function keyboardAnimationStart (event) {
+    if (event.code !== 'F12') {
     TEXTAREA.focus()
     const BUTTONPRESSED = document.querySelector(`.${event.code}`)
     BUTTONPRESSED.classList.add('animation')
 }
+}
 function keyboardAnimationEnd (event) {
+    if (event.code !== 'F12') {
     const BUTTONPRESSED = document.querySelector(`.${event.code}`)
     BUTTONPRESSED.classList.remove('animation')
+}
 }
 
 document.addEventListener('keydown', keyboardAnimationStart)
@@ -551,22 +555,13 @@ function capsLockBtn (event) {
         });
     } 
 }
-/* function capsLockBtn(event) {
-    if (event.code === 'CapsLock' || event.target.classList.contains('CapsLock')) {
-      CAPS.classList.add('caps-active');
-      const allChars = document.querySelectorAll('.letter');
-      allChars.forEach((element) => {
-        const el = element;
-        el.innerHTML = el.innerHTML.toUpperCase();
-      });
-    } else if ((event.code === 'CapsLock' && CAPS.classList.contains('caps-active')) || (event.target.classList.contains('caps-active'))) {
-        CAPS.classList.remove('caps-active');
-        const allChars = document.querySelectorAll('.letter');
-        allChars.forEach((element) => {
-          const el = element;
-          el.innerHTML = el.innerHTML.toLowerCase();
-        });
-      }
-  }*/
+
 CAPS.addEventListener('click', capsLockBtn)
 document.addEventListener('keydown', capsLockBtn)
+
+const BACKSPACE = document.querySelector('.Backspace') 
+function backSpaceBtn () {
+    let textValue = TEXTAREA.value
+    TEXTAREA.value = textValue.slice(0,-1)
+}
+BACKSPACE.addEventListener('click', backSpaceBtn)
