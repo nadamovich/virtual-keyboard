@@ -355,7 +355,7 @@ function createKeyboard() {
 }
 function projectDescription() {
   const DESCRIPTION = document.createElement('div');
-  DESCRIPTION.innerHTML = 'Клавиатура создана в операционной системе Windows. <br> Для переключения языка комбинация: Left ALT + Left Shift(Здравствуйте! Не успел закончить, перепроверьте пожалуйста в четверг вечером(оставьте дискорд для связи, напишу по готовности). Спасибо! Хорошего вам дня!)';
+  DESCRIPTION.innerHTML = 'Клавиатура создана в операционной системе Windows. Для переключения языка комбинация: Left Alt + Left Shift';
   BODY.append(DESCRIPTION);
 }
 function createBody() {
