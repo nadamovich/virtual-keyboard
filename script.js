@@ -565,3 +565,10 @@ function backSpaceBtn () {
     TEXTAREA.value = textValue.slice(0,-1)
 }
 BACKSPACE.addEventListener('click', backSpaceBtn)
+
+const ENTERBTN = document.querySelector('.Enter')
+function enterBtn () {
+    TEXTAREA.focus()
+    TEXTAREA.value = TEXTAREA.value + '\n'
+}
+ENTERBTN.addEventListener('click', enterBtn)
