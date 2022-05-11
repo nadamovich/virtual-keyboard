@@ -11,7 +11,7 @@ body {
 .wrapper {
     display: flex;
     flex-direction: column;
-    border: 1px solid green;
+    border: 1.5px solid rgb(0, 153, 255);
     gap: 5px;
     padding: 5px;
     border-radius: 2px;
@@ -22,11 +22,13 @@ body {
     gap: 5px;
 }
 .key {
-    border: 1px solid green;
+    border: 1px solid rgb(0, 153, 255);
     width: 50px;
     height: 36px;
     font-size: 22px;
     padding: 5px;
+    background-color: rgba(0, 153, 255, 0.308);
+    color: #7f03db;
 }
 .Backspace, .CapsLock {
     width: 90px;
@@ -40,16 +42,24 @@ body {
     width: 130px;
     font-size: 19px;
 }
-.Tab, .Delete, .ControlLeft, .MetaLeft, .AltLeft, .AltRight, .ControlRight {
+.Tab, .ControlLeft, .MetaLeft, .AltLeft, .AltRight, .ControlRight {
     font-size: 19px;
 }
 .Space {
     width: 427px;
+    background-color: rgba(0, 153, 255, 0.5);
 }
 .ArrowUp, .ArrowLeft, .ArrowDown, .ArrowRight {
     text-align: center;
+    background-color: rgba(0, 153, 255, 0.5);
+}
+.Backspace, .Tab, .CapsLock, .Enter, .ShiftLeft, .ShiftRight, .ControlLeft, .MetaLeft, .AltLeft, .AltRight, .ControlRight {
+    background-color: rgba(0, 153, 255, 0.5);
 }
 .animation {
     transform: scale(0.9);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px #7d03db7c;
+}
+.caps-active {
+    background-color: rgb(0, 153, 255);
 }

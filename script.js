@@ -195,13 +195,6 @@ let keysArr = [[
       "EngShift": "\\",
       "RusShift": "\\",  
       "code": "Backslash"
-   },
-     {
-      "ENG": "Del",
-      "RUS": "Del",
-      "EngShift": "Del",
-      "RusShift": "Del",  
-      "code": "Delete"
    }],
    [
      {
@@ -483,7 +476,7 @@ function createKeyboard () {
             LINE.append(KEY)
         }
     }
-    const nonLetterKeys = document.querySelectorAll('.Backspace, .Tab, .Delete, .CapsLock, .Enter, .ShiftLeft, .ShiftRight, .ControlLeft, .MetaLeft, .AltLeft, .AltRight, .ControlRight')
+    const nonLetterKeys = document.querySelectorAll('.Backspace, .Tab, .CapsLock, .Enter, .ShiftLeft, .ShiftRight, .ControlLeft, .MetaLeft, .AltLeft, .AltRight, .ControlRight')
     nonLetterKeys.forEach((Element) => {Element.classList.remove('letter')})
 }
 function projectDescription () {
@@ -530,4 +523,50 @@ function keyboardAnimationEnd (event) {
 }
 
 document.addEventListener('keydown', keyboardAnimationStart)
-document.addEventListener('keyup', keyboardAnimationEnd)    
+document.addEventListener('keyup', keyboardAnimationEnd)
+
+const TABKEY =  document.querySelector('.Tab')
+function tabBtn (event) {
+    if (event.code === 'Tab' || event.target.classList.contains('Tab')) {  
+        TEXTAREA.focus()
+        event.preventDefault()
+        TEXTAREA.value = TEXTAREA.value + '\t'
+    }
+}
+
+document.addEventListener('keydown', tabBtn)
+TABKEY.addEventListener('click', tabBtn)
+
+const CAPS = document.querySelector('.CapsLock')
+function capsLockBtn (event) {
+    if ((event.code === 'CapsLock' && CAPS.classList.contains('caps-active')) || (event.target.classList.contains('caps-active'))) {
+        CAPS.classList.remove('caps-active')
+        LETTER.forEach((letter) => {
+            letter.innerHTML = letter.innerHTML.toLowerCase()
+        })
+    } else if (event.code === 'CapsLock' || event.target.classList.contains('CapsLock')) {
+        CAPS.classList.add('caps-active')
+        LETTER.forEach((letter) => {
+            letter.innerHTML = letter.innerHTML.toUpperCase()
+        });
+    } 
+}
+/* function capsLockBtn(event) {
+    if (event.code === 'CapsLock' || event.target.classList.contains('CapsLock')) {
+      CAPS.classList.add('caps-active');
+      const allChars = document.querySelectorAll('.letter');
+      allChars.forEach((element) => {
+        const el = element;
+        el.innerHTML = el.innerHTML.toUpperCase();
+      });
+    } else if ((event.code === 'CapsLock' && CAPS.classList.contains('caps-active')) || (event.target.classList.contains('caps-active'))) {
+        CAPS.classList.remove('caps-active');
+        const allChars = document.querySelectorAll('.letter');
+        allChars.forEach((element) => {
+          const el = element;
+          el.innerHTML = el.innerHTML.toLowerCase();
+        });
+      }
+  }*/
+CAPS.addEventListener('click', capsLockBtn)
+document.addEventListener('keydown', capsLockBtn)
